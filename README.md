@@ -13,4 +13,5 @@ https://www.youtube.com/watch?v=Ia-UEYYR44s
 See this article for a list of new topics included in C02. 
 https://digitalcloud.training/new-aws-certified-solutions-architect-associate-exam-saa-c02/
 
-I do recommend going for the whizlabs practice tests, they are a great help to get into the exam mode one you are done studying and really help you with time management and how you would want to approach the exam.
+I do recommend going for the whizlabs practice tests, they are a great help to get into the exam mode one you are done studying and really help you with time management.  
+The nature of questions is also pretty close to what you get in the exam. It is not a perfect question bank but it is worh the investment.  
