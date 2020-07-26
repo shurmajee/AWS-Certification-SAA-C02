@@ -85,9 +85,9 @@ The **Principal** element specifies the user, account, service, or other entity 
 **Not** prefix creates an exception. I recommend going through policy examples in AWS docs to develop a basic understanding of the policy language.
 
 **Key Rotation:** It is recommended to retire older access keys for users. For roles this process is automated. 
-AWS Secrets manager is used to manage third party API keys
-Accesskeys allow programmatic access. A user can have max 2 at a time. They allow access through CLI and SDK. They are shown only once when generated.
-IAM stores up to five versions of your customer managed policies. You can use policy versions to revert a policy to an earlier version if you need to.
+* AWS Secrets manager can be used to manage third party API keys
+* Accesskeys allow programmatic access. A user can have max 2 at a time. They allow access through CLI and SDK. They are shown only once when generated.
+* IAM stores up to five versions of your customer managed policies. You can use policy versions to revert a policy to an earlier version if you need to.
 
 **Amazon Cognito**
 
