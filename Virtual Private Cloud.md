@@ -64,7 +64,7 @@ Rules are evaluated starting with the lowest numbered rule. As soon as a rule ma
 
 In practice, to cover the different types of clients that might initiate traffic to public-facing instances in your VPC, you can open ephemeral ports 1024-65535. However, you can also add rules to the ACL to deny traffic on any malicious ports within that range. **Ensure that you place the deny rules earlier in the table than the allow rules that open the wide range of ephemeral ports.**
 
-**One use case for NACL is to specifically block an IP range. Explicit blocking can not be done with a security group. **
+**One use case for NACL is to specifically block an IP range. Explicit blocking can not be done with a security group.**
 
 **Network Address Translation:**
 NAT devices must always be present in a public subnet as they have to connect to the internet. NAT gateway is a NAT device managed by AWS. nothing to manage or access. Automatically scales to accommodate bandwidth requirements. NAT gateway must be assigned an EIP while creation as it is created in a public subnet.
@@ -74,16 +74,16 @@ NAT gateways are not supported for IPv6 traffic—use an outbound-only (egress-o
 
 **If you have resources in multiple Availability Zones and they share one NAT gateway, and if the NAT gateway’s AZ is down, resources in the other Availability Zones lose internet access. To create an Availability Zone-independent architecture, create a NAT gateway in each Availability Zone and configure your routing to ensure that resources use the NAT gateway in the same Availability Zone.**
 
-**VPC peering:** peering interface can be created to communicate between two vpcs. Works over different regions and accounts. It is a point to point connection between two VPCs. It only allows instance to instance communication. You can not use it to share IG or NAT (Transitive routing is not allowed through peering). You may share network load balancers and EFS mount points. No overlapping CIDRs allowed. For VPC peering connection, the desired subnet’s routing table needs to have an entry for the destination VPC CIDR mapped with Peering connection ID (both ways)
+**VPC peering:** peering interface can be created to communicate between two vpcs. Works over different regions and accounts. It is a point to point connection between two VPCs. It only allows instance to instance communication. You can not use it to share IG or NAT (Transitive routing is not allowed through peering). You may share network load balancers and EFS mount points. No overlapping CIDRs allowed. **For VPC peering connection, the desired subnet’s routing table needs to have an entry for the destination VPC CIDR mapped with Peering connection ID (both ways)**
 
 **VPC transit gateway:** A transit gateway is a network transit hub that you can use to interconnect your virtual private clouds (VPC) and on-premises networks. Multiple VPCs can be connected to the gateway.
 
-**VPC endpoint** enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC do not require public IP addresses to communicate with resources in the service. Traffic between your VPC and the other service does not leave the Amazon network. Two types: Interface endpoints/Gateway endpoints
+**VPC endpoint** enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC do not require public IP addresses to communicate with resources in the service. Traffic between your VPC and the other service does not leave the Amazon network. Two types: Interface endpoints/Gateway endpoints (**Use when the traffic should not go over the public internet**)
 
-**Interface endpoints:** An interface endpoint is an elastic network interface with a private IP address from the IP address range of your subnet that serves as an entry point for traffic destined to a supported service.
+* **Interface endpoints:** An interface endpoint is an elastic network interface with a private IP address from the IP address range of your subnet that serves as an entry point for traffic destined to a supported service.
 Pricing: You will be billed for each hour that your VPC endpoint remains provisioned in each Availability Zone, irrespective of the state of its association with the service (0.01$/hour). Data processing charges apply for each Gigabyte processed through the VPC endpoint regardless of the traffic’s source or destination (0.01$/gb).Many services are supported by this. API gateway, cloudformation, SNS, KMS, EC2API, ELB API etc.
 
-**Gateway Endpoints:** gateway endpoints support only two services currently. S3 and dynamodb. There are no additional costs for gateway endpoints.
+* **Gateway Endpoints:** gateway endpoints support only two services currently. S3 and dynamodb. There are no additional costs for gateway endpoints.
 Once You create an endpoint to a supported AWS service, and associate your route table with the endpoint. An endpoint route is automatically added to the route table.
 You cannot explicitly add, modify, or delete an endpoint route in your route table by using the route table APIs, or by using the Route Tables page in the Amazon VPC console. You can only add an endpoint route by associating a route table with an endpoint.
 The endpoint route shows a prefix list ID which represents a list of IP addresses.  See examples here: [Gateway VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html)
