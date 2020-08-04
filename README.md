@@ -1,5 +1,5 @@
 # AWS-Certification-SAA-C02
-My notes for the newer version of the AWS Solution Architect Associate. Basic topics like what is cloud computing? what is AWS? and basic terminologies like regions and AZ are not covered. However if you have already made progress with your studies, I hope these notes would help you as they cover all the topics in scope for the exam. 
+My notes for the new version of the AWS Solution Architect Associate. Basic topics like what is cloud computing? what is AWS? and basic terminologies like regions and AZ are not covered. However if you have already made progress with your studies, I hope these notes would help you as they cover all the topics in scope for the exam. 
 
 This is a compilation of information from various sources that I used to study for the AWS Solutions Architect - Assocciate certification. 
 Do note that AWS introduces changes quite frequently and hence the best place for clearing your doubts any topic is the AWS documentation.
